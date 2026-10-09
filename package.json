@@ -1,0 +1,15 @@
+{
+  "name": "ankita-apology",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "node tools.cjs vendor",
+    "dev": "node tools.cjs serve",
+    "start": "node tools.cjs serve",
+    "build": "node --check main.js && node --check audio.js && node tools.cjs build",
+    "test": "node --check main.js && node --check audio.js && node tools.cjs build"
+  },
+  "dependencies": {
+    "three": "0.128.0"
+  }
+}

@@ -1,4 +1,5 @@
 :root {
+    --player-space: 88px;
     --bg-dark: #050106;
     --burgundy-deep: #16020c;
     --burgundy-light: #2c0519;
@@ -264,7 +265,7 @@ html, body {
 /* 2. Glowing Interactive Chance Button */
 #chanceBtn {
     position: absolute;
-    bottom: 12%;
+    bottom: calc(var(--player-space) + 22px);
     left: 0;
     right: 0;
     margin: auto;
@@ -325,9 +326,15 @@ html, body {
     position: absolute;
     inset: 0;
     margin: auto;
+    margin-bottom: calc(var(--player-space) + 16px);
     height: fit-content;
     width: 95%;
     max-width: 1080px;
+    max-height: calc(100vh - var(--player-space) - 30px);
+    max-height: calc(100dvh - var(--player-space) - 30px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
     display: none;
     opacity: 0;
     flex-direction: column;
@@ -335,7 +342,8 @@ html, body {
     z-index: 25;
     pointer-events: all;
     perspective: 1200px;
-    padding: 10px;
+    padding: 10px 10px 32px 10px;
+    box-sizing: border-box;
 }
 
 .memory-header {
@@ -473,9 +481,15 @@ html, body {
     position: absolute;
     inset: 0;
     margin: auto;
+    margin-bottom: calc(var(--player-space) + 16px);
     height: fit-content;
     width: 90%;
     max-width: 800px;
+    max-height: calc(100vh - var(--player-space) - 30px);
+    max-height: calc(100dvh - var(--player-space) - 30px);
+    overflow-y: auto;
+    padding: 10px 10px 30px 10px;
+    box-sizing: border-box;
     display: none;
     opacity: 0;
     flex-direction: column;
@@ -534,21 +548,26 @@ html, body {
     position: absolute;
     inset: 0;
     margin: auto;
+    margin-bottom: calc(var(--player-space) + 16px);
     height: fit-content;
+    max-height: calc(100vh - var(--player-space) - 30px);
+    max-height: calc(100dvh - var(--player-space) - 30px);
+    overflow-y: auto;
     display: none;
     opacity: 0;
     flex-direction: column;
     align-items: center;
     text-align: center;
     z-index: 35;
-    background: rgba(18, 2, 10, 0.88);
+    background: rgba(18, 2, 10, 0.9);
     border: 1px solid rgba(255, 110, 167, 0.55);
-    padding: 40px 32px;
-    border-radius: 30px;
+    padding: 34px 28px;
+    border-radius: 28px;
     backdrop-filter: blur(25px);
     box-shadow: 0 0 60px rgba(255, 45, 117, 0.55);
     max-width: 480px;
     width: 90%;
+    box-sizing: border-box;
 }
 
 .question-title {
@@ -629,21 +648,26 @@ html, body {
     position: absolute;
     inset: 0;
     margin: auto;
+    margin-bottom: calc(var(--player-space) + 16px);
     height: fit-content;
     width: 90%;
     max-width: 680px;
+    max-height: calc(100vh - var(--player-space) - 30px);
+    max-height: calc(100dvh - var(--player-space) - 30px);
+    overflow-y: auto;
     display: none;
     opacity: 0;
     flex-direction: column;
     align-items: center;
     text-align: center;
     z-index: 50;
-    background: rgba(18, 2, 12, 0.85);
+    background: rgba(18, 2, 12, 0.88);
     border: 1px solid rgba(255, 110, 167, 0.5);
-    padding: 38px 28px;
+    padding: 32px 26px 36px 26px;
     border-radius: 28px;
     backdrop-filter: blur(25px);
     box-shadow: 0 0 50px rgba(255, 45, 117, 0.55);
+    box-sizing: border-box;
 }
 
 .happy-title {
@@ -767,8 +791,870 @@ html, body {
     }
 
     #chanceBtn {
-        bottom: 10%;
-        padding: 14px 28px;
-        font-size: 1.05rem;
+        bottom: calc(var(--player-space) + 14px);
+        padding: 13px 26px;
+        font-size: 1rem;
     }
 }
+
+
+/* ============================================================================
+   Apology Scene Styles (Cinematic Glassmorphism & Heartfelt UX)
+   ============================================================================ */
+.apology-section {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    margin-bottom: calc(var(--player-space) + 14px);
+    height: fit-content;
+    width: 94%;
+    max-width: 620px;
+    max-height: calc(100vh - var(--player-space) - 34px);
+    max-height: calc(100dvh - var(--player-space) - 34px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+    align-items: center;
+    z-index: 25;
+    pointer-events: all;
+    padding: 6px 6px 30px 6px;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 110, 167, 0.4) transparent;
+}
+
+.apology-section::-webkit-scrollbar {
+    width: 6px;
+}
+
+.apology-section::-webkit-scrollbar-thumb {
+    background: rgba(255, 110, 167, 0.4);
+    border-radius: 10px;
+}
+
+.apology-content {
+    background: rgba(18, 2, 14, 0.88);
+    border: 1px solid rgba(255, 110, 167, 0.45);
+    border-radius: 26px;
+    padding: 24px 20px 24px 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.75), 0 0 35px rgba(255, 45, 117, 0.22);
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.apology-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--rose-neon), var(--gold), transparent);
+}
+
+.apology-badge {
+    display: inline-block;
+    padding: 5px 16px;
+    background: rgba(255, 45, 117, 0.15);
+    border: 1px solid rgba(255, 110, 167, 0.35);
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    color: var(--rose-soft);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.apology-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 3.8vw, 2.2rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+    text-shadow: 0 0 20px rgba(255, 45, 117, 0.5);
+    background: linear-gradient(135deg, #ffffff 0%, #ffd0e0 60%, var(--rose-soft) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.apology-text {
+    font-family: var(--font-body);
+    font-size: clamp(0.88rem, 2vw, 0.98rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 12px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.apology-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 12px;
+}
+
+.apology-options .choice-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 110, 167, 0.35);
+    border-radius: 40px;
+    padding: 10px 8px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    backdrop-filter: blur(8px);
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
+    line-height: 1.3;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.apology-options .choice-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(255, 45, 117, 0.25);
+    border-color: var(--rose-soft);
+    background: rgba(255, 110, 167, 0.18);
+}
+
+.apology-options .choice-btn:active {
+    transform: translateY(0px) scale(0.99);
+}
+
+.choice-btn-listen {
+    background: rgba(80, 140, 255, 0.12) !important;
+    border-color: rgba(100, 160, 255, 0.35) !important;
+    color: #b8d5ff !important;
+}
+
+.choice-btn-listen:hover {
+    background: rgba(80, 140, 255, 0.22) !important;
+    border-color: rgba(120, 180, 255, 0.6) !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 24px rgba(80, 140, 255, 0.3) !important;
+}
+
+.choice-btn-sorry {
+    background: rgba(255, 90, 95, 0.12) !important;
+    border-color: rgba(255, 110, 120, 0.35) !important;
+    color: #ffb8ba !important;
+}
+
+.choice-btn-sorry:hover {
+    background: rgba(255, 90, 95, 0.22) !important;
+    border-color: rgba(255, 130, 140, 0.6) !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 24px rgba(255, 90, 95, 0.3) !important;
+}
+
+.choice-btn-ready {
+    background: rgba(72, 199, 142, 0.12) !important;
+    border-color: rgba(80, 210, 150, 0.35) !important;
+    color: #a8ebd0 !important;
+}
+
+.choice-btn-ready:hover {
+    background: rgba(72, 199, 142, 0.22) !important;
+    border-color: rgba(100, 230, 170, 0.6) !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 24px rgba(72, 199, 142, 0.3) !important;
+}
+
+.apology-response {
+    margin-top: 14px;
+    padding: 12px 18px;
+    border-radius: 16px;
+    background: rgba(255, 45, 117, 0.14);
+    border: 1px solid rgba(255, 110, 167, 0.35);
+    font-family: var(--font-body);
+    font-size: 0.94rem;
+    line-height: 1.55;
+    color: #fff;
+    text-shadow: 0 0 12px rgba(255, 45, 117, 0.3);
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.apology-response.show {
+    display: block;
+}
+
+.apology-next-btn {
+    margin-top: 16px !important;
+    padding: 12px 30px !important;
+    font-size: 0.98rem !important;
+    display: inline-block !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0px); }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --player-space: 74px;
+    }
+
+    .apology-content {
+        padding: 18px 14px 20px 14px;
+        border-radius: 20px;
+    }
+
+    .apology-title {
+        font-size: 1.45rem;
+        margin-bottom: 10px;
+    }
+
+    .apology-text {
+        font-size: 0.86rem;
+        line-height: 1.5;
+        margin-bottom: 8px;
+    }
+
+    .apology-options {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .apology-options .choice-btn {
+        padding: 10px 14px;
+        font-size: 0.88rem;
+    }
+}
+
+/* ==========================================================================
+   SPOTIFY-GRADE ROMANTIC MINI PLAYER
+   ========================================================================== */
+.spotify-mini-player {
+    position: fixed;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: calc(100% - 28px);
+    max-width: 860px;
+    user-select: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+.spotify-deck {
+    position: relative;
+    background: rgba(22, 6, 17, 0.82);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid rgba(242, 198, 160, 0.32);
+    border-radius: 28px;
+    box-shadow: 0 16px 45px rgba(5, 1, 6, 0.95), 0 0 25px rgba(217, 79, 112, 0.25), inset 0 1px 0 rgba(247, 231, 206, 0.15);
+    padding: 10px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: #F7E7CE;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spotify-deck:hover {
+    border-color: rgba(242, 198, 160, 0.5);
+    box-shadow: 0 20px 50px rgba(5, 1, 6, 0.98), 0 0 32px rgba(217, 79, 112, 0.35);
+}
+
+/* Left: Track Info & Vinyl */
+.spotify-track-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+    max-width: 28%;
+    flex-shrink: 0;
+}
+
+.spotify-vinyl {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1.5px solid rgba(242, 198, 160, 0.45);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+    background: #090508;
+}
+
+.spotify-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.spotify-vinyl-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #090508;
+    border: 1.5px solid rgba(242, 198, 160, 0.6);
+}
+
+.spotify-vinyl.spinning {
+    animation: vinylSpin 12s linear infinite;
+}
+
+@keyframes vinylSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spotify-meta {
+    min-width: 0;
+    text-align: left;
+    overflow: hidden;
+}
+
+.spotify-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #F7E7CE;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+
+.spotify-artist {
+    font-size: 0.74rem;
+    color: rgba(242, 198, 160, 0.82);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+}
+
+/* Center Controls & Scrub Slider */
+.spotify-center-controls {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 480px;
+}
+
+.spotify-buttons-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 5px;
+}
+
+.spotify-btn-icon {
+    background: transparent;
+    border: none;
+    color: rgba(247, 231, 206, 0.7);
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spotify-btn-icon:hover {
+    color: #F2C6A0;
+    transform: scale(1.15);
+}
+
+.spotify-btn-icon:active {
+    transform: scale(0.95);
+}
+
+.spotify-btn-icon.active {
+    color: #F2C6A0;
+    filter: drop-shadow(0 0 6px rgba(242, 198, 160, 0.7));
+}
+
+.spotify-play-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8F183D 0%, #D94F70 100%);
+    border: 1.5px solid rgba(242, 198, 160, 0.45);
+    color: #F7E7CE;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 16px rgba(217, 79, 112, 0.6);
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.spotify-play-btn:hover {
+    transform: scale(1.12);
+    box-shadow: 0 0 24px rgba(217, 79, 112, 0.9);
+}
+
+.spotify-play-btn:active {
+    transform: scale(0.94);
+}
+
+/* Scrub Row & Slider */
+.spotify-scrub-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.72rem;
+    font-family: monospace;
+    color: rgba(247, 231, 206, 0.7);
+}
+
+.spotify-time {
+    width: 34px;
+    tabular-nums;
+}
+
+#currentTimeLabel {
+    text-align: right;
+}
+
+#durationLabel {
+    text-align: left;
+    color: rgba(247, 231, 206, 0.5);
+}
+
+.spotify-bar-track {
+    flex: 1;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    touch-action: none;
+}
+
+.spotify-bar-bg {
+    width: 100%;
+    height: 5px;
+    background: rgba(26, 7, 16, 0.9);
+    border-radius: 999px;
+    border: 1px solid rgba(242, 198, 160, 0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+.spotify-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #8F183D 0%, #D94F70 55%, #F2C6A0 100%);
+    pointer-events: none;
+    transition: width 0.05s linear;
+}
+
+.spotify-bar-thumb {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #F7E7CE;
+    border: 1.5px solid #8F183D;
+    box-shadow: 0 0 10px #F2C6A0, 0 0 4px #8F183D;
+    pointer-events: none;
+    transition: transform 0.12s ease, width 0.12s ease, height 0.12s ease;
+}
+
+.spotify-bar-track:hover .spotify-bar-thumb {
+    transform: translate(-50%, -50%) scale(1.35);
+    box-shadow: 0 0 16px #F2C6A0;
+}
+
+/* Right: Volume & Desktop Playlist */
+.spotify-right-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 130px;
+    justify-content: flex-end;
+}
+
+.spotify-volume-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.spotify-volume-slider {
+    width: 70px;
+    height: 4px;
+    accent-color: #F2C6A0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(26, 7, 16, 0.9);
+    border-radius: 999px;
+    border: 1px solid rgba(242, 198, 160, 0.18);
+    outline: none;
+}
+
+.spotify-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #F2C6A0;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(242, 198, 160, 0.8);
+}
+
+.spotify-mobile-only {
+    display: none;
+}
+
+.spotify-desktop-only {
+    display: flex;
+}
+
+/* Playlist Popover Drawer */
+.spotify-playlist-drawer {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 0;
+    right: 0;
+    background: rgba(22, 6, 17, 0.94);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(242, 198, 160, 0.35);
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(5, 1, 6, 0.98), 0 0 35px rgba(217, 79, 112, 0.25);
+    padding: 18px;
+    animation: drawerSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes drawerSlideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.spotify-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(242, 198, 160, 0.15);
+}
+
+.spotify-drawer-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #F2C6A0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.spotify-drawer-close {
+    background: transparent;
+    border: none;
+    color: rgba(247, 231, 206, 0.6);
+    font-size: 0.95rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.spotify-drawer-close:hover {
+    color: #F2C6A0;
+    background: rgba(242, 198, 160, 0.1);
+}
+
+.spotify-playlist-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.spotify-drawer-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-radius: 16px;
+    background: rgba(26, 7, 16, 0.45);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spotify-drawer-item:hover {
+    background: rgba(74, 16, 34, 0.4);
+    border-color: rgba(242, 198, 160, 0.25);
+    transform: translateY(-1px);
+}
+
+.spotify-drawer-item.active-track {
+    background: rgba(74, 16, 34, 0.7);
+    border-color: rgba(242, 198, 160, 0.45);
+    box-shadow: 0 4px 18px rgba(143, 24, 61, 0.4);
+}
+
+.drawer-item-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.drawer-item-thumb {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #090508;
+    border: 1px solid rgba(242, 198, 160, 0.25);
+    flex-shrink: 0;
+}
+
+.drawer-item-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.drawer-equalizer-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.eq-bar {
+    width: 3px;
+    border-radius: 999px;
+    background: #F2C6A0;
+    animation: eqBounce 0.8s ease-in-out infinite alternate;
+}
+
+.eq-bar:nth-child(1) { height: 6px; animation-delay: 0s; }
+.eq-bar:nth-child(2) { height: 14px; animation-delay: 0.2s; }
+.eq-bar:nth-child(3) { height: 9px; animation-delay: 0.4s; }
+
+@keyframes eqBounce {
+    0% { height: 4px; }
+    100% { height: 14px; }
+}
+
+.drawer-item-info {
+    text-align: left;
+}
+
+.drawer-item-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #F7E7CE;
+}
+
+.drawer-item-artist {
+    font-size: 0.72rem;
+    color: rgba(242, 198, 160, 0.8);
+}
+
+.drawer-item-action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.drawer-item-status {
+    font-size: 0.7rem;
+    font-family: monospace;
+    color: rgba(247, 231, 206, 0.5);
+}
+
+.drawer-mini-play-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(26, 7, 16, 0.9);
+    border: 1px solid rgba(242, 198, 160, 0.3);
+    color: #F2C6A0;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.active-track .drawer-mini-play-btn {
+    background: #D94F70;
+    color: #090508;
+    border-color: #F2C6A0;
+}
+
+/* Autoplay hint pill */
+.audio-hint-pill {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1200;
+    background: rgba(26, 7, 16, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(242, 198, 160, 0.4);
+    color: #F7E7CE;
+    padding: 9px 20px;
+    border-radius: 40px;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 30px rgba(217, 79, 112, 0.4);
+    cursor: pointer;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    animation: gentlePulse 2s infinite ease-in-out;
+}
+
+.hint-pulse {
+    display: inline-block;
+    animation: barPulse 1s infinite alternate;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 720px) {
+    .spotify-deck {
+        padding: 8px 14px;
+        gap: 10px;
+        border-radius: 22px;
+    }
+
+    .spotify-track-info {
+        max-width: 32%;
+        gap: 9px;
+    }
+
+    .spotify-vinyl {
+        width: 38px;
+        height: 38px;
+    }
+
+    .spotify-title {
+        font-size: 0.78rem;
+    }
+
+    .spotify-artist {
+        font-size: 0.68rem;
+    }
+
+    .spotify-desktop-only {
+        display: none;
+    }
+
+    .spotify-mobile-only {
+        display: flex;
+    }
+
+    .spotify-right-controls {
+        display: none;
+    }
+
+    .spotify-buttons-row {
+        gap: 12px;
+    }
+
+    .spotify-play-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .spotify-scrub-row {
+        gap: 6px;
+        font-size: 0.68rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .spotify-mini-player {
+        bottom: 8px;
+        width: calc(100% - 16px);
+    }
+
+    .spotify-deck {
+        padding: 6px 10px;
+    }
+
+    .spotify-track-info {
+        max-width: 35%;
+    }
+}
+
+/* Compact & Minimized Mode for Spotify Mini Player */
+.spotify-mini-player.minimized .spotify-center-controls,
+.spotify-mini-player.minimized .spotify-volume-group,
+.spotify-mini-player.minimized #playlistToggleBtn {
+    display: none !important;
+}
+
+.spotify-mini-player.minimized .spotify-deck {
+    padding: 6px 14px;
+    border-radius: 40px;
+    max-width: 360px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(5, 1, 6, 0.9), 0 0 18px rgba(217, 79, 112, 0.3);
+}
+
+.spotify-mini-player.minimized .spotify-track-info {
+    max-width: 70%;
+}
+
+.spotify-mini-player.minimized .minimize-icon-svg {
+    transform: rotate(180deg);
+}
+
+.minimize-icon-svg {
+    transition: transform 0.3s ease;
+}
+

@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>For Ankita ❤️ | A Special Apology</title>
+    <meta name="description" content="A 3D romantic universe and heartfelt apology handcrafted for Ankita.">
+    <meta name="theme-color" content="#050106">
+    <title>For Ankita ❤️ | A Special Universe</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,14 +17,14 @@
 </head>
 <body>
     <!-- 3D Canvas Container -->
-    <div id="canvas-container"></div>
+    <div id="canvas-container" aria-hidden="true"></div>
     
     <!-- Vignette Ambient Layer -->
-    <div class="vignette-overlay"></div>
+    <div class="vignette-overlay" aria-hidden="true"></div>
 
     <!-- Floating Sound Control -->
-    <button class="sound-toggle-btn" id="soundBtn" title="Toggle Romantic Audio">
-        <div class="sound-bars">
+    <button class="sound-toggle-btn" id="soundBtn" title="Toggle Romantic Audio" aria-label="Toggle Romantic Audio">
+        <div class="sound-bars" aria-hidden="true">
             <div class="sound-bar"></div>
             <div class="sound-bar"></div>
             <div class="sound-bar"></div>
@@ -34,80 +36,112 @@
     <div class="entrance-screen" id="entranceScreen">
         <div class="entrance-badge">✨ An apology straight from the heart</div>
         <h1 class="entrance-title">For Ankita ❤️</h1>
-        <p class="entrance-subtitle">Maine tumhare liye ek chhota sa romantic universe banaya hai... Just to bring that gorgeous smile back. 🥺</p>
-        <button class="entrance-btn" id="startBtn">
+        <p class="entrance-subtitle">Maine tumhare liye ek chhota sa romantic universe banaya hai... because simple words weren't enough to say how sorry I am. 🥺</p>
+        <button class="entrance-btn" id="startBtn" aria-label="Enter the romantic experience">
             <span>Enter My Heart</span>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
         </button>
     </div>
 
     <!-- UI Overlay Layer -->
-    <div class="ui-layer">
+    <main class="ui-layer">
         
         <!-- Typewriter Text Box (Opening Scene) -->
-        <div class="typewriter-box" id="typewriterBox">
+        <div class="typewriter-box" id="typewriterBox" aria-live="polite">
             <div class="typewriter-content" id="typewriterText"></div>
         </div>
 
         <!-- Interactive Moment Button -->
-        <button class="glowing-action-btn" id="chanceBtn">
+        <button class="glowing-action-btn" id="chanceBtn" style="display: none;">
             Ankita, ek chance milega? 🥺❤️
         </button>
 
         <!-- Thank You Banner -->
-        <div class="thankyou-box" id="thankyouBox">
+        <div class="thankyou-box" id="thankyouBox" style="display: none;">
             <h2 class="thankyou-title">Thank you ❤️</h2>
         </div>
 
+        <!-- Apology Scene (Respectful & Sincere Apology) -->
+        <section class="apology-section" id="apologySection" style="display: none;">
+            <div class="apology-content">
+                <div class="apology-badge">🕊️ An Honest Promise From My Heart</div>
+                <h2 class="apology-title">Meri Maanat... 🥺❤️</h2>
+                <p class="apology-text">
+                    Main dil se jaanta hoon ki meri laparwahi aur galtiyon ki wajah se tumhara dil dukha. Tumhare liye jo waqt, pyaar aur attention sabse zaroori thi, main shayad wahan poori tarah nahi tha. Tumhara gussa bilkul sahi hai, aur main koi bahaana nahi banana chahta.
+                </p>
+                <p class="apology-text">
+                    Tumhe maaf karne ki koi jaldi nahi hai, aur na hi koi dabav. Main bas itna kehna chahta hoon ki tumhari feelings mere liye sabse zaroori hain. Main badalna chahta hoon, tumhari har baat ko sachhe dil se sunna chahta hoon, aur har din tumhe woh respect aur pyaar dena chahta hoon jiski tum haqdaar ho.
+                </p>
+                
+                <div class="apology-options">
+                    <button class="choice-btn choice-btn-listen" id="listenBtn">
+                        Mujhe sunna hai... 👂❤️
+                    </button>
+                    <button class="choice-btn choice-btn-sorry" id="sorryBtn">
+                        Dil se sachi maafi... 🙏❤️
+                    </button>
+                    <button class="choice-btn choice-btn-ready" id="readyBtn">
+                        Har kadam tumhare saath... 🚶‍♂️❤️
+                    </button>
+                </div>
+                
+                <div class="apology-response" id="apologyResponse" aria-live="polite"></div>
+
+                <button class="glowing-action-btn apology-next-btn" id="apologyNextBtn">
+                    Aage dekho... Ek aur surprise hai 💖✨
+                </button>
+            </div>
+        </section>
+
         <!-- Memory / Love Section -->
-        <div class="memory-section" id="memorySection">
+        <section class="memory-section" id="memorySection" style="display: none;">
             <div class="memory-header">
                 <span class="memory-badge">💖 Three Little Reminders</span>
                 <h2 class="memory-title">Kyunki mere liye tum sabse special ho...</h2>
             </div>
             
             <div class="memory-cards-grid">
-                <div class="glass-memory-card" id="card1">
+                <article class="glass-memory-card" id="card1">
                     <div class="card-icon-wrapper">✨</div>
                     <span class="card-tag">Reason #1</span>
                     <h3 class="card-heading">Your Smile</h3>
-                    <p class="card-body-text">"Tumhari smile meri favourite cheez hai. ❤️"</p>
-                </div>
+                    <p class="card-body-text">"Tumhari smile meri favourite cheez hai poore universe mein. ❤️"</p>
+                </article>
 
-                <div class="glass-memory-card" id="card2">
+                <article class="glass-memory-card" id="card2">
                     <div class="card-icon-wrapper">🙈</div>
                     <span class="card-tag">Reason #2</span>
                     <h3 class="card-heading">Cute Gussa</h3>
-                    <p class="card-body-text">"Tum gussa hoti ho tab bhi cute lagti ho 😂❤️"</p>
-                </div>
+                    <p class="card-body-text">"Tum gussa hoti ho tab bhi duniya ki sabse cute ladki lagti ho... par please ab maan jao na? 😂❤️"</p>
+                </article>
 
-                <div class="glass-memory-card" id="card3">
+                <article class="glass-memory-card" id="card3">
                     <div class="card-icon-wrapper">🫶</div>
                     <span class="card-tag">Reason #3</span>
                     <h3 class="card-heading">Favourite Person</h3>
-                    <p class="card-body-text">"Kyuki meri favourite person... tum ho. 🫶"</p>
-                </div>
+                    <p class="card-body-text">"Hazaar logon ke beech bhi, meri favourite person hamesha tum hi rahogi. 🫶"</p>
+                </article>
             </div>
 
             <button class="glowing-action-btn" id="memoryNextBtn" style="display: inline-block; opacity: 1; transform: scale(1);">
                 Aage dekho... Ek aur surprise hai 💖✨
             </button>
-        </div>
+        </section>
 
         <!-- Final Surprise Box -->
-        <div class="final-surprise-box" id="finalSurpriseBox">
+        <section class="final-surprise-box" id="finalSurpriseBox" style="display: none;">
             <h1 class="final-name-title" id="finalNameTitle">ANKITA</h1>
             <p class="final-subtext" id="finalSubtext">Ab gussa chhod bhi do na... 🥺❤️</p>
-            <button class="glowing-action-btn" id="finalQuestionBtn">
+            <button class="glowing-action-btn" id="finalQuestionBtn" style="display: none;">
                 Last Question 👀
             </button>
-        </div>
+        </section>
 
         <!-- Question Modal -->
-        <div class="question-modal" id="questionModal">
-            <h2 class="question-title">Maaf kiya? ❤️</h2>
+        <div class="question-modal" id="questionModal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modalQuestionTitle">
+            <h2 class="question-title" id="modalQuestionTitle">Maaf kiya? ❤️</h2>
             <div class="question-buttons-row">
                 <button class="choice-btn choice-btn-yes" id="yesBtn">
                     YES 🥹❤️
@@ -116,14 +150,14 @@
                     Obviously 😤❤️
                 </button>
             </div>
-            <div class="playful-toast" id="playfulToast">Hehe pata tha! Option bhi nahi tha tumhare paas 😜❤️</div>
+            <div class="playful-toast" id="playfulToast" aria-live="polite">Hehe pata tha! Tumhari ye smile hi meri poori duniya hai 🥰❤️</div>
         </div>
 
         <!-- Happy Ending Grand Finale Box -->
-        <div class="happy-ending-box" id="happyEndingBox">
+        <section class="happy-ending-box" id="happyEndingBox" style="display: none;">
             <h1 class="happy-title">ANKITA ❤️</h1>
             <h2 class="happy-subtitle">Officially forgiven? 😌</h2>
-            <p class="happy-punchline">Ab ek kiss toh banti hai 😂❤️</p>
+            <p class="happy-punchline">Ab ek pyaari si smile toh banti hai! 🥰❤️</p>
             
             <div class="happy-actions-row">
                 <button class="replay-btn" id="replayBtn">
@@ -133,8 +167,98 @@
                     Send a Smile to Me 💌
                 </button>
             </div>
+        </section>
+
+    </main>
+
+    <!-- Spotify Mini Player Deck (Floating Bottom Bar) -->
+    <div class="spotify-mini-player" id="spotifyPlayer">
+        <!-- Playlist Popover Drawer -->
+        <div class="spotify-playlist-drawer" id="spotifyDrawer" style="display: none;">
+            <div class="spotify-drawer-header">
+                <div class="spotify-drawer-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                    <span>Anubhav & Ankita's Playlist 🎵</span>
+                </div>
+                <button class="spotify-drawer-close" id="drawerCloseBtn" aria-label="Close Playlist">✕</button>
+            </div>
+            <div class="spotify-playlist-list" id="playlistList">
+                <!-- Dynamically rendered by audio.js -->
+            </div>
         </div>
 
+        <!-- Main Mini Player Deck -->
+        <div class="spotify-deck">
+            <!-- Left: Album Art & Track Info -->
+            <div class="spotify-track-info">
+                <div class="spotify-vinyl" id="spotifyVinyl">
+                    <img id="trackCover" src="images/photo3.jpg" alt="Album Cover" class="spotify-cover-img">
+                    <div class="spotify-vinyl-center"></div>
+                </div>
+                <div class="spotify-meta">
+                    <h4 class="spotify-title" id="trackTitle">Noormahal</h4>
+                    <p class="spotify-artist" id="trackArtist">Special Track</p>
+                </div>
+            </div>
+
+            <!-- Center: Player Controls & Scrub Slider -->
+            <div class="spotify-center-controls">
+                <div class="spotify-buttons-row">
+                    <!-- Loop / Repeat Toggle -->
+                    <button class="spotify-btn-icon active" id="repeatBtn" title="Repeat All: ON">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+                    </button>
+                    <!-- Previous Track -->
+                    <button class="spotify-btn-icon" id="prevTrackBtn" title="Previous / Restart">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2.5"/></svg>
+                    </button>
+                    <!-- Play / Pause Primary Button -->
+                    <button class="spotify-play-btn" id="mainPlayBtn" title="Play / Pause">
+                        <svg class="play-icon" id="playIconSvg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                        <svg class="pause-icon" id="pauseIconSvg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                    <!-- Next Track -->
+                    <button class="spotify-btn-icon" id="nextTrackBtn" title="Next Song">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.5"/></svg>
+                    </button>
+                    <!-- Mobile Playlist Toggle -->
+                    <button class="spotify-btn-icon spotify-mobile-only" id="playlistMobileBtn" title="Playlist">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1.5"/><circle cx="4" cy="12" r="1.5"/><circle cx="4" cy="18" r="1.5"/></svg>
+                    </button>
+                </div>
+
+                <!-- Continuous Spotify Scrub / Seek Progress Bar -->
+                <div class="spotify-scrub-row">
+                    <span class="spotify-time" id="currentTimeLabel">0:00</span>
+                    <div class="spotify-bar-track" id="seekProgressBar" role="slider" aria-label="Seek audio position" tabindex="0">
+                        <div class="spotify-bar-bg">
+                            <div class="spotify-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+                        </div>
+                        <div class="spotify-bar-thumb" id="progressBarThumb" style="left: 0%;"></div>
+                    </div>
+                    <span class="spotify-time" id="durationLabel">0:00</span>
+                </div>
+            </div>
+
+            <!-- Right: Volume & Playlist Controls (Desktop) -->
+            <div class="spotify-right-controls">
+                <!-- Playlist Button -->
+                <button class="spotify-btn-icon spotify-desktop-only" id="playlistToggleBtn" title="View Playlist">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1.5"/><circle cx="4" cy="12" r="1.5"/><circle cx="4" cy="18" r="1.5"/></svg>
+                </button>
+                <!-- Volume Control -->
+                <div class="spotify-volume-group">
+                    <button class="spotify-btn-icon" id="volumeIconBtn" title="Mute / Unmute">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                    </button>
+                    <input type="range" class="spotify-volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.85" title="Volume">
+                </div>
+                <!-- Minimize / Expand Toggle -->
+                <button class="spotify-btn-icon" id="playerMinimizeBtn" title="Minimize / Expand Player" aria-label="Minimize or expand music bar">
+                    <svg class="minimize-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+            </div>
+        </div>
     </div>
 
     <!-- External Libraries -->

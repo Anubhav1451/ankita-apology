@@ -1,10 +1,14 @@
 # Dependencies
 node_modules/
 
+# Production build
+dist/
+
 # OS files
 .DS_Store
 Thumbs.db
 
-# Test scripts
-check.js
-test_runner.js
+# Test logs & debug debris
+test-results/
+.claude/
+*.log
